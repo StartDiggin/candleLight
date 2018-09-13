@@ -1,0 +1,16 @@
+<form class="" action="createUser/" method="post">
+  {% csrf_token %}
+  <label for="">Name:</label>
+  <input type="text" name="name">
+
+  <label for="">Email:</label>
+  <input type="email" name="email">
+
+  <label for="">Password:</label>
+  <input type="password" name="password">
+
+  <label for="">Confirm password:</label>
+  <input type="password" name="confirm_password">
+
+  <input type="submit" value="Add User">
+</form>

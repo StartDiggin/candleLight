@@ -1,0 +1,46 @@
+body {
+  background-image: url('images/recipeBackground.jpeg');
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.container {
+  border: 1px solid black;
+
+}
+
+.inputData {
+  background-color: rgba(190, 198, 211, 0.7);
+}
+
+.inputData label {
+position: absolute;
+}
+
+.inputData input {
+  margin-left: 9em;
+}
+
+.inputData textarea {
+  margin-left: 9em;
+}
+
+.submitButton {
+  height: 50px;
+  width: 200px;
+  background-color: green;
+  border-radius: 20px;
+  margin-top: 10px;
+}
+
+input:focus {
+  background-color: yellow;
+}
+
+textarea:focus {
+  background-color: yellow;
+}
+input:hover[type="submit"] {
+  background-color: red;
+}

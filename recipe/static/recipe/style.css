@@ -1,0 +1,83 @@
+body {
+  background-image: url('images/recipeBackground.jpeg');
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.container {
+  border: 2px solid purple;
+  color: grey;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 200px 75px 400px 300px 150px 100px;
+  grid-gap: 1em;
+}
+
+.header {
+  background-image: url('images/logo.jpeg');
+  background-repeat: no-repeat;
+  display: grid;
+  border: 1px solid black;
+  grid-template-columns: 1fr 3fr 1fr;
+  grid-column: 1/-1;
+  color: black;
+  justify-items: center;
+  align-items: center;
+}
+
+.nav {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border: 1px solid black;
+  background-color: tan;
+  grid-column: 1/-1;
+  justify-items: center;
+  align-items: center;
+}
+
+.nav a {
+  text-decoration: none;
+  color: black;
+}
+
+.main {
+  border: 1px solid black;
+  background-color: lightblue;
+  grid-column: 1/span 3;
+  grid-row: 3 / 4;
+}
+
+.rtSidebar {
+  border: 1px solid black;
+  grid-column: 4/-1;
+  background-color: lightyellow;
+  grid-row: 3 / 5;
+}
+
+.imgCarousel {
+  border: 1px solid black;
+  background-color: lightgreen;
+  grid-column: 2 / 4
+}
+
+.ltSidebar {
+  border: 1px solid black;
+  background-color: grey;
+  color: red;
+  grid-column: 1 / 2;
+  grid-row: 4 / 6;
+}
+
+.sponsorBanner {
+  border: 1px solid red;
+  grid-column: 2 / -1;
+  background-color: tan;
+  /* grid-row: */
+}
+
+footer {
+  border: 1px solid green;
+  grid-column: 1 / -1;
+  background-color: orange;
+}

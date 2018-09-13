@@ -1,0 +1,56 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <link rel="stylesheet" type="text/css" href="{% static 'recipe/style_recipe.css' %}">
+  <title>Recipes</title>
+</head>
+<body>
+  <h1>Add Recipe</h1>
+  <div class="container">
+    <div class="inputData">
+      <form action="createRecipe" method="post">
+        {% csrf_token %}
+        <label for="">Enter Title:</label>
+        <input type="text" name="recipe_title" placeholder="Enter Title"><br>
+
+        <label for="">Instructions:</label>
+        <textarea name="recipe_instructions" rows="8" cols="80" placeholder="How do you make this stuff!"></textarea><br>
+
+        <!-- <label for="">Author</label>
+        <input type="text" name="recipe_author" placeholder="Enter Name of Cook"><br> -->
+
+        <label for="">Upload Video:</label>
+        <input type="file" name="recipe_video" placeholder="Upload video"><br>
+
+        <label for="">Rate this Recipe:</label>
+        <input type="number" name="recipe_rate" placeholder="Enter rate 1-10"><br>
+
+        <label for="">This feeds?:</label>
+        <input type="text" name="recipe_feeds"><br>
+
+        <label for="">Type of food:</label>
+        <input type="text" name="recipe_type"><br>
+
+        <label for="">Category:</label>
+        <input type="text" name="recipe_category"><br>
+
+        <label for="">Add an image</label>
+        <input type="file" name="recipe_img"><br>
+
+        <!-- <label for="">Ingredient:</label>
+        <input type="text" name="ingredient_name"><br>
+
+        <label for="">Amt:</label>
+        <input type="text" name="ingredient_amt"><br> -->
+
+        <input class="submitButton" type="submit" value="Add Recipe">
+      </form>
+    </div>
+  </div>
+</body>
+</html>
