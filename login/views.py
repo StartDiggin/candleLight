@@ -18,3 +18,18 @@ def create(request):
     )
 
     return redirect('/login')
+
+def login(request):
+    if request.POST['email']:
+        user = User.objects.get(email=request.POST['email'])
+        if user.password == request.POST['password']:
+            request.session['id'] = user.id
+            print user.id
+            return redirect('/')
+        else:
+            return redirect('/login')
+    else:
+        return redirect('/login')
+
+def speech(request):
+    return render(request, 'login/speech.html');

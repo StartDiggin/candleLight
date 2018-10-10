@@ -19,8 +19,8 @@ class RecipeManager(models.Manager):
         return recipe
 
 class IngredientManager(models.Manager):
-    def add_ingredients(self, ingredient_name, ingredient_amt):
-        ingredient = self.create(ingredient_name=ingredient_name, ingredient_amt=ingredient_amt)
+    def add_ingredients(self, ingredient_name, ingredient_amt, recipe):
+        ingredient = self.create(ingredient_name=ingredient_name, ingredient_amt=ingredient_amt, recipe=recipe)
         return ingredient
 
 class Recipe(models.Model):

@@ -1,0 +1,47 @@
+{% extends 'recipe/base.html' %}
+
+{% block content %}
+
+  <main>
+    <div>
+      <h1>Recipe: {{ recipe.recipe_type }}  </h1>
+      <small>
+        Author: {{ recipe.recipe_author }} |
+        Rate: {{ recipe.recipe_rate }} |
+        Feeds: {{ recipe.recipe_feeds }} |
+        Category: {{ recipe.recipe_category }} |
+        Date added: {{ recipe.pub_date }} |
+        <a href="#">Gallery</a>
+      </small>
+      <h2>Instructions:</h2><br>
+      <h2 hidden class="inst">{{ recipe.recipe_instructions }}</h2>
+      <h2><ol id="inst"></ol></h2>
+    </div>
+  </main>
+
+  <div class="rtSidebar">
+    <h1>Ingredient List</h1>
+    {% for x in ingredients %}
+    <ul>
+      <li><big>{{ x.ingredient_name }}</big>: {{ x.ingredient_amt }}</li>
+    </ul>
+    {% endfor %}
+    <a href="/updateRecipe/{{ recipe.id }}">Update</a> |
+    <a href="/deleteRecipe/{{ recipe.id }}">Delete Recipe</a>
+  </div>
+
+
+  <script>
+    let inst = document.querySelector('.inst');
+    inst = Array.from(inst.firstChild.data).join('');
+    let number = inst.split(';').map(inst => `${inst}`)
+
+    document.querySelector('#inst').innerHTML =
+      number
+        .map(inst => `<li>${inst}</li>`)
+        .join('')
+
+
+  </script>
+
+  {% endblock %}

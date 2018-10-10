@@ -1,0 +1,58 @@
+{% extends 'recipe/base.html' %}
+
+{% block content %}
+
+    <main>
+      <form action="createRecipe" method="post">
+        {% csrf_token %}
+        <label for="">Enter Title:</label>
+        <input type="text" name="recipe_title" placeholder="Enter Title"><br>
+
+        <label for="">Instructions:</label>
+        <textarea name="recipe_instructions" rows="8" cols="80" placeholder="How do you make this stuff!"></textarea><br>
+        <small>add ';' to end of each instruction</small><br>
+        <label for="">Upload Video:</label>
+        <input type="file" name="recipe_video" placeholder="Upload video"><br>
+
+        <label for="">Rate this Recipe:</label>
+        <input type="number" name="recipe_rate" placeholder="Enter rate 1-10"><br>
+
+        <label for="">This feeds?:</label>
+        <input type="text" name="recipe_feeds"><br>
+
+        <label for="">Type of food:</label>
+        <input type="text" name="recipe_type"><br>
+
+        <label for="">Category:</label>
+        <input type="text" name="recipe_category"><br>
+
+        <label for="">Add an image</label>
+        <input type="file" name="recipe_img"><br>
+
+        <input class="submitButton" type="submit" value="Add Recipe">
+      </form>
+    </main>
+    <div class="rtSidebar">
+      <div class="add_ingredients">
+        <h2>{{ recipe.recipe_title }}</h2>
+
+        <form action="add_ingredients" method="post">
+          {% csrf_token %}
+          <label for="">Add Ingredients to recipe.</label>
+          <h2>Ingredient Name:</h2> <input type="text" name="ingredient_name">
+          <h2>Ingredient Amount:</h2> <input type="text" name="ingredient_amt"><br>
+          <input type="submit" value="Add">
+        </form>
+        <div class="ingredient_list">
+          <h2>Ingredient List:</h2>
+          {% for x in ingredients %}
+          <ul>
+            <li>{{ x.ingredient_name }}: {{ x.ingredient_amt }} | <a href="/delete/{{x.id}}">x</a></li>
+          </ul>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+
+{% endblock %}
